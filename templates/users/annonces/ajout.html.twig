@@ -1,0 +1,28 @@
+{% extends 'users.html.twig' %}
+
+{% block title %}Ajouter une annonce{% endblock %}
+
+{% block body %}
+{% if app.request.attributes.get('_route') == 'users_annonces_edit' %}
+    <h1>Modifier une annonce</h1>
+{% else %}
+    <h1>Ajouter une annonce</h1>
+{% endif %}
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+
+    {# Si la route est "annonces_edit on affiche les images #}
+	{% if app.request.attributes.get('_route') == 'users_annonces_edit' %}
+        <h2>Images</h2>
+        {% for image in annonce.images %}
+            <div>
+                <img src="{{ asset('/uploads/images/annonces/'~image.name) }}" alt="" width="150">
+            </div>
+        {% endfor %}
+    {% endif %}
+{{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/images.js') }}"></script>
+{% endblock %}

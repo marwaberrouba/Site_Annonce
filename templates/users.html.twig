@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+		        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="stylesheet" href="{{ asset('css/users_styles.css') }}">
+	</head>
+<body id="body-pd"> 
+        <header class="header" id="header">
+            <div class="header__toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+            </div>
+            <div class="header__img">
+                <img src="img/p-1.jpg">
+            </div>
+        </header> 
+
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div>
+                    <a href="{{ path('app_home') }}" class="nav__logo">
+                        <i class='bx bx-layer nav__logo-icon'></i>
+                        <span class="nav__logo-name">Accueil</span>
+                    </a>
+                    <div class="nav__list">
+					    <a href="{{ path('users') }}" class="nav__link ">
+                            <i class='bx bx-list-ul nav__icon'></i>
+                            <span class="nav__name">Mon Profil</span>
+                        </a>
+                        <a href="{{ path('users_profil_modifier') }}" class="nav__link">
+                            <i class='bx bx-grid-alt nav__icon' ></i>
+                            <span class="nav__name">Modifier le profil</span>
+                        </a>
+                        <a href="{{ path('users_pass_modifier') }}" class="nav__link">
+                            <i class='bx bx-stopwatch nav__icon'></i>
+                            <span class="nav__name">Modifier Password</span>
+                        </a>
+                        <a href="{{ path('users_annonces_ajout') }}" class="nav__link">
+                            <i class='bx bx-stopwatch nav__icon'></i>
+                            <span class="nav__name">Ajot Annonce</span>
+                        </a>
+                    </div>
+                </div>
+				    <a href="{{ path('app_logout') }}" class="nav__link">
+                    <i class='bx bx-log-out nav__icon' ></i>
+                    <span class="nav__name">Log Out</span>
+                </a>
+            </nav>
+        </div>
+
+		<main>
+			<button data-target="example-sidenav" class="btn press amaranth dark-1 sidenav-trigger hide-md-up">
+				Open sidenav
+			</button>
+			{% block body %}{% endblock %}
+		</main>
+
+		<footer class="footer primary">
+			
+		</footer>
+</body>
+
+		<script src="https://cdn.jsdelivr.net/npm/axentix@0.5.3/dist/js/axentix.min.js"></script>
+		{% block javascripts %}{% endblock %}
+
+	
+
+
+		<script src="{{ asset('js/users.js') }}"></script>
+</html>
